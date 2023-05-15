@@ -1,15 +1,30 @@
+security:
+  jwt:
+    token:
+      secret-key: 54cr37
+      expire-length: 3600000
 spring:
+  flyway:
+    baselineOnMigrate: true
   datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/agenda?useTimezone=true&serverTimezone=UTC
       username: root
-      password: Hellencbp@#1911#@
+      password: admin
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+      show-sql: false
+springdoc:
+  pathsToMatch:
+    - /auth/**
+  swagger-ui:
+    use-root-path: true
+
+
       #defer-datasource-initialization: true
   #sql:
     #init:

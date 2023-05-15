@@ -1,4 +1,4 @@
-package br.techback2.agendaonline.models;
+package br.techback2.agendaonline.agenda.models;
 
 
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ public class Email implements Serializable {
     @Id
     private Long id;
 
-    private String email;
+    private String descricao;
 
 }
 

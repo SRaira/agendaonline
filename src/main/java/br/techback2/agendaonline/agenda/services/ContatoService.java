@@ -1,7 +1,7 @@
-package br.techback2.agendaonline.services;
+package br.techback2.agendaonline.agenda.services;
 
-import br.techback2.agendaonline.models.Contato;
-import br.techback2.agendaonline.repositories.ContatoRepository;
+import br.techback2.agendaonline.agenda.models.Contato;
+import br.techback2.agendaonline.agenda.repositories.ContatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

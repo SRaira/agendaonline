@@ -1,7 +1,7 @@
-package br.techback2.agendaonline.repositories;
+package br.techback2.agendaonline.agenda.repositories;
 
 
-import br.techback2.agendaonline.models.Telefone;
+import br.techback2.agendaonline.agenda.models.Telefone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

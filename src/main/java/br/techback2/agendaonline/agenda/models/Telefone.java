@@ -1,4 +1,4 @@
-package br.techback2.agendaonline.models;
+package br.techback2.agendaonline.agenda.models;
 
 
 import lombok.AllArgsConstructor;
@@ -17,7 +17,9 @@ import java.io.Serializable;
 @Entity
 public class Telefone implements Serializable {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private int telefone;
 }

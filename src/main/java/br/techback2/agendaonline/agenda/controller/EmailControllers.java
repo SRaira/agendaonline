@@ -1,8 +1,7 @@
-package br.techback2.agendaonline.controller;
+package br.techback2.agendaonline.agenda.controller;
 
-import br.techback2.agendaonline.models.Contato;
-import br.techback2.agendaonline.models.Email;
-import br.techback2.agendaonline.services.EmailService;
+import br.techback2.agendaonline.agenda.models.Email;
+import br.techback2.agendaonline.agenda.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

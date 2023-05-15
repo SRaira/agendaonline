@@ -1,6 +1,6 @@
-package br.techback2.agendaonline.repositories;
+package br.techback2.agendaonline.agenda.repositories;
 
-import br.techback2.agendaonline.models.Contato;
+import br.techback2.agendaonline.agenda.models.Contato;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

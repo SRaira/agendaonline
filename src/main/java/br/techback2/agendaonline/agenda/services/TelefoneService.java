@@ -1,7 +1,7 @@
-package br.techback2.agendaonline.services;
+package br.techback2.agendaonline.agenda.services;
 
-import br.techback2.agendaonline.models.Telefone;
-import br.techback2.agendaonline.repositories.TelefoneRepository;
+import br.techback2.agendaonline.agenda.models.Telefone;
+import br.techback2.agendaonline.agenda.repositories.TelefoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -5,6 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -38,7 +40,7 @@ public class UserModel implements UserDetails, Serializable {
         return roles;
     }
 
-    public void setRoles(List<RoleModel> roles) {
+    public void setRoles (List<RoleModel> roles) {
         this.roles = roles;
     }
 

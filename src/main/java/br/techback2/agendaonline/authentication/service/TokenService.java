@@ -50,7 +50,7 @@ public class TokenService {
     public TokenDto gerarToken(UserModel usuario) {
 
         List<String> roles = usuario.getRoles().stream()
-                .map( u -> u.toString()).toList();
+                .map( u -> u.getRoleName().toString()).toList();
 
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);

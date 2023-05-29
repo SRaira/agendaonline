@@ -5,6 +5,7 @@ import br.techback2.agendaonline.agenda.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,40 +17,28 @@ public class EmailControllers {
 
 
     @Autowired
-    EmailService service;
+    private EmailService emailService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Email> create(@RequestBody Email email) {
-        Email emailCreated = service.create(email);
+    public ResponseEntity<Email> salvar(@RequestBody Email email) {
+        Email emailSalvo = emailService.salvar(email);
 
-        return ResponseEntity.status(201).body(emailCreated);
-    }
-
-    @PutMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Email> update(@RequestBody Email email) {
-        Email emailCreated = service.create(email);
-
-        return ResponseEntity.status(201).body(emailCreated);
+        return ResponseEntity.status(201).body(emailSalvo);
     }
 
     @GetMapping("/listar-todos")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @ResponseStatus(HttpStatus.OK)
-    public List<Email> findAll() {
-        return service.findAll();
+    public List<Email> listar() {return emailService.listar();
     }
 
-    @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public Optional<Email> findById(@PathVariable Long id) {
-        return service.findById(id);
-    }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
-        service.delete(id);
+        emailService.excluir(id);
     }
 
 

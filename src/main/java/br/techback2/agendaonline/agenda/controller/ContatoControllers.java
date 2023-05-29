@@ -16,47 +16,29 @@ import java.util.Optional;
 public class ContatoControllers {
 
     @Autowired
-    ContatoService service;
+    private ContatoService contatoService;
 
 
     @PostMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Contato> create(@RequestBody Contato contato) {
-        Contato contatoCreated = service.create(contato);
+    public ResponseEntity<Contato> salvar(@RequestBody Contato contato) {
+        Contato contatoSalvo = contatoService.salvar(contato);
 
-        return ResponseEntity.status(201).body(contatoCreated);
+        return ResponseEntity.status(201).body(contatoSalvo);
     }
 
-    @PutMapping
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Contato> update(@RequestBody Contato contato) {
-        Contato contatoCreated = service.create(contato);
-
-        return ResponseEntity.status(201).body(contatoCreated);
-    }
 
     @GetMapping("/listar-todos")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @ResponseStatus(HttpStatus.OK)
-    public List<Contato> findAll() {
-        return service.findAll();
-    }
+    public List<Contato> listar() {return contatoService.listar();}
 
-    @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    @ResponseStatus(HttpStatus.OK)
-    public Optional<Contato> findById(@PathVariable Long id) {
-        return service.findById(id);
-    }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
-        service.delete(id);
-    }
+    public void delete(@PathVariable Long id) { contatoService.excluir(id);}
 
 }
 

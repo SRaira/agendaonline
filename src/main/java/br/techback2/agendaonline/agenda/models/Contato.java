@@ -17,20 +17,21 @@ import java.util.Set;
 @Entity
 public class Contato implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = true)
     @JoinColumn(name="email_id")
     private Set<Email> listemails;
 
-    @ManyToMany
+    @ManyToOne(optional = true)
     @JoinColumn(name="telefone_id")
     private Set<Telefone> listtelefones;
-
 
     public Contato(Long id, String nome){
         this.id = id;

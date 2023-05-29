@@ -13,20 +13,14 @@ public class TelefoneService {
 
 
     @Autowired
-    TelefoneRepository repository;
-    public Telefone create(Telefone telefone){
-        return repository.save(telefone);
+    private TelefoneRepository telefoneRepository;
+    public Telefone salvar(Telefone telefone){
+        return telefoneRepository.save(telefone);
     }
 
-    public Telefone update(Telefone telefone) {return repository.save(telefone);}
+    public List<Telefone> listar(){return telefoneRepository.findAll();}
 
-    public List<Telefone> findAll(){return repository.findAll();}
-
-    public Optional<Telefone> findById(Long id) {
-        return repository.findById(id);
-    }
-
-    public void delete(Long id) {
-        repository.deleteById(id);
+    public void excluir(Long id) {
+        telefoneRepository.deleteById(id);
     }
 }

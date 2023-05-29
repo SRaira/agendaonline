@@ -4,7 +4,7 @@ import br.techback2.agendaonline.authentication.TokenDto;
 import br.techback2.agendaonline.authentication.model.UserModel;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import lombok.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class TokenService {
 
-    @Value("${security.jwt.token.secret-key:secret}")
+    @org.springframework.beans.factory.annotation.Value("${security.jwt.token.secret-key:secret}")
     private String secretKey = "secret";
 
     @Value("${security.jwt.token.expire-length:3600000}")

@@ -12,22 +12,15 @@ import java.util.Optional;
 public class ContatoService {
 
     @Autowired
-    ContatoRepository repository;
+    private ContatoRepository contatoRepository;
 
-    public Contato create(Contato contato){
-        return repository.save(contato);
+    public Contato salvar(Contato contato){
+        return contatoRepository.save(contato);
     }
 
-    public Contato update (Contato contato) {return repository.save(contato);}
+    public List<Contato> listar (){return contatoRepository.findAll();}
 
-    public List<Contato> findAll (){return repository.findAll();}
-
-    public Optional<Contato> findById(Long id) {
-        return repository.findById(id);
-    }
-
-    public void delete(Long id) {
-        repository.deleteById(id);
+    public void excluir(Long id) { contatoRepository.deleteById(id);
     }
 
 

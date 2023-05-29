@@ -12,22 +12,17 @@ import java.util.Optional;
 public class EmailService {
 
     @Autowired
-    EmailRepository repository;
+    private EmailRepository emailRepository;
 
-    public Email create(Email email){
-        return repository.save(email);
+    public Email salvar(Email email){
+        return emailRepository.save(email);
     }
 
-    public Email update(Email email) {return repository.save(email);}
+    public List<Email> listar(){return emailRepository.findAll();}
 
-    public List<Email> findAll(){return repository.findAll();}
 
-    public Optional<Email> findById(Long id) {
-        return repository.findById(id);
-    }
-
-    public void delete(Long id) {
-        repository.deleteById(id);
+    public void excluir(Long id) {
+        emailRepository.deleteById(id);
     }
 
 

@@ -1,20 +1,26 @@
-create TABLE 'contato'
-(`id`       bigint NOT NULL AUTO_INCREMENT,
-  `email`    varchar(255) DEFAULT NULL,
-  `nome`     varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
 create TABLE 'email'
-(`id`       bigint NOT NULL AUTO_INCREMENT,
+(
+   `id`       bigint NOT NULL AUTO_INCREMENT,
   `descricao`    varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
 create TABLE 'telefone'
-(`id`       bigint NOT NULL AUTO_INCREMENT,
+(
+  `id`       bigint NOT NULL AUTO_INCREMENT,
   `telefone`    int(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
+);
+
+create TABLE 'contato'
+(
+  `id`       bigint NOT NULL AUTO_INCREMENT,
+  `nome`     varchar(255) DEFAULT NULL,
+  `email`    bigint DEFAULT NULL,
+  `telefone`    bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT FOREIGN KEY (`email`) REFERENCES `email` (`id`),
+  CONSTRAINT FOREIGN KEY (`telefone`) REFERENCES `telefone` (`id`)
 );
 
 CREATE TABLE `role_model`
